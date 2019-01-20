@@ -1,0 +1,23 @@
+{
+  "name": "stoperreact",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all  start:*",
+        "start:babel": "babel script.js --out-file script-compiled.js",
+        "start:browsersync": "browser-sync start --server --files 'css/*.css' '*.html'",
+        "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "browser-sync": "^2.26.3",
+    "npm-run-all": "^4.1.5"
+  }
+}

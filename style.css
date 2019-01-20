@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
+.container {
+    background-image: url('stoper.jpg');
+    text-align: center;
+    margin: 100px auto;
+    height: 490px;
+    width: 360px;
+    font-family: 'VT323', monospace;
+}
+
+.buttons {
+    padding: 30px;
+    position: relative;
+    top: 35%;
+}
+
+.button {
+    margin: 1px;
+}
+
+.stopwatch {
+    border-radius: 5px;
+    font-size: 55px;
+    padding: 5px;
+    background-color: lightgray;
+    display: inline;
+    position: relative;
+    top: 170px;
+}
+
