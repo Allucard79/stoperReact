@@ -1,14 +1,18 @@
 class Stopwatch extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
+            running: false,
             times: {
                 minutes: 0,
                 seconds: 0,
                 miliseconds: 0
             }
-        }
-        this.running = false;
+        };
+        this.start = this.start.bind(this);
+        this.step = this.step.bind(this);
+        this.stop = this.stop.bind(this);
+        this.reset = this.reset.bind(this);
     }
 
     reset() {
@@ -26,14 +30,16 @@ class Stopwatch extends React.Component {
     }
 
     start() {
-    	if (!this.running) {
-        	this.running = true;
+    	if (!this.state.running) {
+            this.setState ({
+                running: true
+            });
         	this.watch = setInterval(() => this.step(), 10);
     	}
 	}
 
 	step() {
-    	if (!this.running) return;
+    	if (!this.state.running) return;
     	this.calculate();
 	}
 
@@ -52,7 +58,7 @@ class Stopwatch extends React.Component {
 	}
 
 	stop() {
-    	this.running = false;
+    	this.setState({running: false});
     	clearInterval(this.watch);
 	}
 
@@ -60,9 +66,9 @@ class Stopwatch extends React.Component {
         return(
             <div className="container">
                 <div className="buttons">
-                    <button className="button btn btn-success" onClick={() => this.start()}>Start</button>
-                    <button className="button btn btn-danger" onClick={() => this.stop()}>Stop</button>
-                    <button className="button btn btn-primary" onClick={() => this.reset()}>Reset</button>
+                    <button className="button btn btn-success" onClick={this.start}>Start</button>
+                    <button className="button btn btn-danger" onClick={this.stop}>Stop</button>
+                    <button className="button btn btn-primary" onClick={this.reset}>Reset</button>
                 </div>
                 <div className="stopwatch">
                 {this.format(this.state.times)}
